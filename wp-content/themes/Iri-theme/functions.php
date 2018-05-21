@@ -8,19 +8,6 @@ function hide_admin_bar() {
 add_action('init', 'hide_admin_bar');
 
 /*
- * Register playing fields post type
- */
-function add_portfolio_img_post_type() {
-    register_post_type('add_portfolio_img', array(
-        'public' => true,
-        'labels' => array(
-            'name' => __('Картинки портфолио')
-        )
-    ));
-}
-add_action('init', 'add_portfolio_img_post_type');
-
-/*
  * Register theme styles
  */
 function register_styles() {
@@ -43,7 +30,20 @@ function register_scripts() {
 add_filter('wp_enqueue_scripts', 'register_scripts');
 
 /*
- * Register theme scripts
+ * Register portfolio fields post type
+ */
+function add_portfolio_img_post_type() {
+    register_post_type('add_portfolio_img', array(
+        'public' => true,
+        'labels' => array(
+            'name' => __('Картинки портфолио')
+        )
+    ));
+}
+add_action('init', 'add_portfolio_img_post_type');
+
+/*
+ * Add photo to portfolio
  */
 function get_portfolio_images()
 {
