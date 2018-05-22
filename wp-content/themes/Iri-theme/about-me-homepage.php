@@ -6,9 +6,13 @@
     <div class="about__column-right">
         <h2 class="section-header">
             <span class="section-header__text-small">Few words</span>
-            <span class="section-header__text-big section-header__text-big--smaller">About me</span>
+            <span class="section-header__text-big section-header__text-big--smaller"><?php
+                $idObj = get_category_by_slug('s_aboutme');
+                $id = $idObj->term_id;
+                echo get_cat_name($id);
+                ?></span>
         </h2>
-        <p class="text-italic text-italic--dark text-center">My name is Irina Kutsenko, and I’m a professional photographer. Suspendisse potenti. Pellentesque cursus pulvinar pellentesque. Aenean Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam architecto cupiditate doloremque enim et excepturi expedita harum illo in ipsa ipsum itaque libero molestiae, natus, nesciunt soluta vero vitae.25  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur in nemo possimus quia, repudiandae veniam. euismod non lorem at vehicula. Mauris risus massa, hendrerit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, et. in blandit eu, placerat nec nulla.</p>
+        <p class="text-italic text-italic--dark text-center"><?php echo category_description(4); ?> </p>
     </div>
     <div class="about__column-center">
         <h3 class="section-header">My work principles</h3>
