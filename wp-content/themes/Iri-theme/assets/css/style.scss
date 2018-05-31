@@ -428,6 +428,9 @@ figure {
   padding: 10px 0 0;
 }
 
+.owl-item img {
+  border-radius: 50%
+}
 .testimotionals-slider {
   display: block;
 }
@@ -437,7 +440,7 @@ figure {
   text-align: center;
 }
 .testimotionals-item__avatar {
-  width: 200px;
+  max-width: 200px;
   margin: 0 auto;
 }
 .testimotionals-item__blockquote {

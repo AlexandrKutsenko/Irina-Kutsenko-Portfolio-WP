@@ -86,3 +86,35 @@ function get_work_principles()
         'posts_per_page' => -1,
     ]);
 }
+
+
+/*
+ * Register testimotionals fields post type
+ */
+
+function add_testimotionals_post_type() {
+    add_theme_support( 'post-thumbnails' );
+    register_post_type('add_testimotionals', array(
+        'public' => true,
+        'labels' => array(
+            'name' => __('testimotionals')
+        ),
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    ));
+}
+add_action('init', 'add_testimotionals_post_type');
+
+/*
+ * Add testimotionals
+ */
+function get_testimotionals()
+{
+    return get_posts([
+        'post_type' => 'add_testimotionals',
+        'posts_per_page' => -1,
+    ]);
+}
