@@ -14,38 +14,23 @@
         </h2>
         <p class="text-italic text-italic--dark text-center"><?php echo category_description(4); ?> </p>
     </div>
+
+    <?php $work_principles = get_work_principles(); ?>
+    <?php if( ! empty($work_principles) ) { ?>
     <div class="about__column-center">
         <h3 class="section-header">My work principles</h3>
         <div class="principles">
+            <?php foreach ($work_principles as $work_principle) {?>
             <div class="principles__item">
                 <div class="principles__item-number">01</div>
                 <div class="principles__item-text">
-                    <p class="principles__item-title">TAKE A WALK</p>
-                    <p class="principles__item-description">Nullam sit amet mattis sem, ut Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque dolore ratione vitae. Deserunt impedit obcaecati quidem saepe.hendrerit sapien. Mauris suscipit feugiat ante quis pellentesque.</p>
+                    <p class="principles__item-title"><?php echo $work_principle->post_title  ?></p>
+                    <p class="principles__item-description"><?php echo $work_principle->post_content  ?></p>
                 </div>
             </div>
-            <div class="principles__item">
-                <div class="principles__item-number">02</div>
-                <div class="principles__item-text">
-                    <p class="principles__item-title">TAKE A WALK</p>
-                    <p class="principles__item-description">Nullam sit amet mattis sem, ut hendrerit sapien. Mauris suscipit feugiat ante quis Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae eveniet facere ipsum necessitatibus, quod reprehenderit sunt? pellentesque.</p>
-                </div>
-            </div>
-            <div class="principles__item">
-                <div class="principles__item-number">03</div>
-                <div class="principles__item-text">
-                    <p class="principles__item-title">TAKE A WALK</p>
-                    <p class="principles__item-description">Nullam sit amet mattis sem, ut Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur esse ex laboriosam laborum libero natus optio veniam.hendrerit sapien. Mauris suscipit feugiat ante quis pellentesque.</p>
-                </div>
-            </div>
-            <div class="principles__item">
-                <div class="principles__item-number">04</div>
-                <div class="principles__item-text">
-                    <p class="principles__item-title">TAKE A WALK</p>
-                    <p class="principles__item-description">Nullam sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consectetur hic quo repellendus soluta. Cupiditate dolor nostrum perferendis vitae voluptatum.mattis sem, ut hendrerit sapien. Mauris suscipit feugiat ante quis pellentesque.</p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
+    <?php } ?>
 </section>
 <!-- END SECTION ABOUT ME -->

@@ -57,3 +57,27 @@ function get_portfolio_images()
 // TODO: main menu
 // TODO: site options (phones, social links
 // TODO: localization
+
+/*
+ * Register MY WORK PRINCIPLES fields post type
+ */
+function add_work_principles_post_type() {
+    register_post_type('add_work_principles', array(
+        'public' => true,
+        'labels' => array(
+            'name' => __('MY WORK PRINCIPLES')
+        )
+    ));
+}
+add_action('init', 'add_work_principles_post_type');
+
+/*
+ * Add MY WORK PRINCIPLES
+ */
+function get_work_principles()
+{
+    return get_posts([
+        'post_type' => 'add_work_principles',
+        'posts_per_page' => -1,
+    ]);
+}

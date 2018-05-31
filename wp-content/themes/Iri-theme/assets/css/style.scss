@@ -397,6 +397,7 @@ figure {
 }
 .principles__item {
   display: flex;
+  flex-wrap: wrap;
   width: calc(50% - 30px);
   padding-bottom: 30px;
   margin: 0 15px 15px;
