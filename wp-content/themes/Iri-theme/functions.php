@@ -66,7 +66,12 @@ function add_work_principles_post_type() {
         'public' => true,
         'labels' => array(
             'name' => __('MY WORK PRINCIPLES')
-        )
+        ),
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt'
+            )
     ));
 }
 add_action('init', 'add_work_principles_post_type');

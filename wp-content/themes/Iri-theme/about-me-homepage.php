@@ -22,7 +22,7 @@
         <div class="principles">
             <?php foreach ($work_principles as $work_principle) {?>
             <div class="principles__item">
-                <div class="principles__item-number">01</div>
+                <div class="principles__item-number"><?php echo $work_principle->post_excerpt  ?></div>
                 <div class="principles__item-text">
                     <p class="principles__item-title"><?php echo $work_principle->post_title  ?></p>
                     <p class="principles__item-description"><?php echo $work_principle->post_content  ?></p>
