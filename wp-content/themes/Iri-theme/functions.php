@@ -54,9 +54,6 @@ function get_portfolio_images()
     ]);
 }
 
-// TODO: main menu
-// TODO: site options (phones, social links
-// TODO: localization
 
 /*
  * Register MY WORK PRINCIPLES fields post type
@@ -118,3 +115,7 @@ function get_testimotionals()
         'posts_per_page' => -1,
     ]);
 }
+
+// TODO: main menu
+// TODO: site options (phones, social links
+// TODO: localization
