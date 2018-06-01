@@ -15,7 +15,7 @@
 <body class="gallery-body">
 <div class="wrapper">
     <!-- BEGIN HEADER -->
-    <header class="header">
+    <header class="header<?php if( get_the_ID() !== 26) echo ' header__contact' ?>">
         <div class="container">
             <div class="header__columns">
                 <div class="header__column header__column--left">

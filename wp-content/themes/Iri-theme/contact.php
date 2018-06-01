@@ -1,17 +1,20 @@
-<?php get_header() ?>
+<?php
+
+global $post;
+
+/*
+ * Template name: Contacts
+ */
+get_header() ?>
 
     <!-- BEGIN CONTACT -->
     <div class="contact">
         <div class="contact-container">
             <div class="contact-content contact-content__text">
-                <h1 class="section-header__text-big section-header__text-big--size-2">Contact Us</h1>
-                <h3 class="section-header__text-big--smaller section-header__text-big--smaller-size-2">Drop us a line</h3>
-                <p>If you have any questions about our products or services, our team is ready to answer any of your
-                    questions.<br>
-                    So feel free to get in touch with us.</p>
-                <h3 class="section-header__text-big--smaller section-header__text-big--smaller-size-2">E-mail & Phone</h3>
-                <p>irinakutsenkoph@gmail.com<br>
-                    +34 603 34 22 48</p>
+                <h1 class="section-header__text-big section-header__text-big--size-2"><?php the_title() ?></h1>
+                <div class="content">
+                    <?php echo $post->post_content ?>
+                </div>
             </div>
             <div class="contact-form">
                 <div class="contact-form__data">

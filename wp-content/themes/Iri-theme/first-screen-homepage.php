@@ -4,7 +4,7 @@
         <h1 class="home-first-screen__header">I'm a Photographer</h1>
         <p class="home-first-screen__text">Your dream about your photo will become true with me</p>
         <div class="home-first-screen__button-container">
-            <button type="button" class="button">Call Me</button>
+            <a href="<?php echo get_permalink(64) ?>" class="button">Call Me</a>
         </div>
     </div>
 </section>
