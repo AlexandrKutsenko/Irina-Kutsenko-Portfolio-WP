@@ -97,7 +97,6 @@ function get_work_principles()
 /*
  * Register testimotionals fields post type
  */
-
 function add_testimotionals_post_type() {
     add_theme_support( 'post-thumbnails' );
     register_post_type('add_testimotionals', array(
@@ -150,6 +149,37 @@ function get_prices()
 {
     return get_posts([
         'post_type' => 'add_prices',
+        'posts_per_page' => -1,
+    ]);
+}
+
+/*
+ * Register gallery fields post type
+ */
+
+function add_gallerys_post_type() {
+    add_theme_support( 'post-thumbnails' );
+    register_post_type('add_gallerys', array(
+        'public' => true,
+        'labels' => array(
+            'name' => __('gallerys')
+        ),
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+        )
+    ));
+}
+add_action('init', 'add_gallerys_post_type');
+
+/*
+ * Add gallery
+ */
+function get_gallerys()
+{
+    return get_posts([
+        'post_type' => 'add_gallerys',
         'posts_per_page' => -1,
     ]);
 }

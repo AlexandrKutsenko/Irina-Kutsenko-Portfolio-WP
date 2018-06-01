@@ -5,14 +5,17 @@
 get_header() ?>
 
     <!-- BEGIN GALLERY -->
+<?php $gallerys = get_gallerys(); ?>
+<?php if( ! empty($gallerys) ) { ?>
     <div class="my-gallery">
+        <?php foreach ($gallerys as $gallery) {?>
         <div class="gallery-2" itemscope itemtype="http://schema.org/ImageGallery">
             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                 <a href="<?php echo get_template_directory_uri()?>/img/portfolioexamples/Photo_24.JPG" itemprop="contentUrl" data-size="900x600">
-                    <img src="<?php echo get_template_directory_uri()?>/img/portfolioexamples/Photo_24.JPG" itemprop="thumbnail" alt="Image description" />
+                    <?php echo get_the_post_thumbnail( $gallery->ID); ?>
                     <div class="gallery_description">
-                        <h3 class="gallery_description-name">Gallery name</h3>
-                        <p class="gallery_description-text">Gallery description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, nesciunt?</p>
+                        <h3 class="gallery_description-name"><?php echo $gallery->post_title  ?></h3>
+                        <p class="gallery_description-text"><?php echo $gallery->post_content  ?></p>
                     </div>
                 </a>
             </figure>
@@ -34,8 +37,9 @@ get_header() ?>
                 </figure>
             </div>
         </div>
+        <?php } ?>
     </div>
-
+<?php } ?>
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
