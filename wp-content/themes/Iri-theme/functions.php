@@ -125,5 +125,34 @@ function get_testimotionals()
     ]);
 }
 
+/*
+ * Register prices fields post type
+ */
+function add_prices_post_type() {
+    register_post_type('add_prices', array(
+        'public' => true,
+        'labels' => array(
+            'name' => __('prices')
+        ),
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt'
+        )
+    ));
+}
+add_action('init', 'add_prices_post_type');
+
+/*
+ * Add prices
+ */
+function get_prices()
+{
+    return get_posts([
+        'post_type' => 'add_prices',
+        'posts_per_page' => -1,
+    ]);
+}
+
 // TODO: main menu
 // TODO: site options (phones, social links
