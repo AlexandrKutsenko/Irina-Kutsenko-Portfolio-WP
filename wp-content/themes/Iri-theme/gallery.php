@@ -9,34 +9,31 @@ get_header() ?>
 <?php if( ! empty($gallerys) ) { ?>
     <div class="my-gallery">
         <?php foreach ($gallerys as $gallery) {?>
-        <div class="gallery-2" itemscope itemtype="http://schema.org/ImageGallery">
-            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                <a href="<?php echo get_template_directory_uri()?>/img/portfolioexamples/Photo_24.JPG" itemprop="contentUrl" data-size="900x600">
-                    <?php echo get_the_post_thumbnail( $gallery->ID); ?>
-                    <div class="gallery_description">
-                        <h3 class="gallery_description-name"><?php echo $gallery->post_title  ?></h3>
-                        <p class="gallery_description-text"><?php echo $gallery->post_content  ?></p>
+            <?php $images = get_field('photo_for_gallery', $gallery->ID);?>
+            <?php if( ! $images) continue ?>
+            <?php $image = array_shift($images) ?>
+            <div class="gallery-2" itemscope itemtype="http://schema.org/ImageGallery">
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                    <a href="<?php echo $image['url'] ?>" itemprop="contentUrl" data-size="<?php echo $image['width'] . 'x' . $image['height']?>">
+                        <img src="<?php echo $image['url'] ?>" itemprop="thumbnail" alt="Image description" />
+                        <div class="gallery_description">
+                            <h3 class="gallery_description-name"><?php echo $gallery->post_title  ?></h3>
+                            <p class="gallery_description-text"><?php echo $gallery->post_content  ?></p>
+                        </div>
+                    </a>
+                </figure>
+                <?php if($images) { ?>
+                    <div class="hidden-images">
+                        <?php foreach($images as $image) { ?>
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="<?php echo $image['url'] ?>" itemprop="contentUrl" data-size="<?php echo $image['width'] . 'x' . $image['height']?>">
+                                <img src="<?php echo $image['url'] ?>" itemprop="thumbnail" alt="Image description" />
+                            </a>
+                        </figure>
+                        <?php } ?>
                     </div>
-                </a>
-            </figure>
-            <div class="hidden-images">
-                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a href="<?php echo get_template_directory_uri()?>/img/portfolioexamples/Photo_26.jpg" itemprop="contentUrl" data-size="900x600">
-                        <img src="img/portfolioexamples/Photo_26.jpg" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </figure>
-                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a href="<?php echo get_template_directory_uri()?>/img/portfolioexamples/Photo_22.jpg" itemprop="contentUrl" data-size="600x900">
-                        <img src="img/portfolioexamples/Photo_22.jpg" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </figure>
-                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a href="<?php echo get_template_directory_uri()?>/img/portfolioexamples/Photo_22.jpg" itemprop="contentUrl" data-size="600x900">
-                        <img src="img/portfolioexamples/Photo_22.jpg" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </figure>
+                <?php } ?>
             </div>
-        </div>
         <?php } ?>
     </div>
 <?php } ?>

@@ -166,8 +166,7 @@ function add_gallerys_post_type() {
         ),
         'supports' => array(
             'title',
-            'editor',
-            'thumbnail'
+            'editor'
         )
     ));
 }
