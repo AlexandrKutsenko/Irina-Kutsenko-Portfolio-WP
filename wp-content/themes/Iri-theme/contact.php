@@ -19,27 +19,7 @@ get_header() ?>
             <div class="contact-form">
                 <div class="contact-form__data">
                     <h3 class="section-header__text-big--smaller contact-form-title">Contact form</h3>
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control contact-form__form-control" name="name" value size="40" aria-required="true" aria-invalid="false"
-                                   placeholder="Name...">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control contact-form__form-control" name="email" value size="40" aria-required="true" aria-invalid="false"
-                                   placeholder="E-mail...">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control contact-form__form-control" name="phone" value size="40" aria-required="true" aria-invalid="false"
-                                   placeholder="Phone...">
-                        </div>
-                        <div class="form-group">
-                    <textarea name="textarea" class="form-control contact-form__form-control" cols="40" rows="10" aria-required="true"
-                              aria-invalid="false" placeholder="Message..."></textarea>
-                        </div>
-                    </form>
-                    <div class="text-center">
-                        <button type="button" class="button">Submit</button>
-                    </div>
+                    <?php echo do_shortcode( '[contact-form-7 id="4" title="Contact Form"]' ); ?>
                 </div>
             </div>
         </div>
